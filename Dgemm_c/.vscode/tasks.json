@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar Projeto DGEMM (AVX e OpenMP)",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-Wall",
+                "-Wextra",
+                "-g3",
+                "-O3",
+                "-mavx2",
+                "-fopenmp",
+                "${file}",
+                "-o",
+                "${fileDirname}/saida/${fileBasenameNoExtension}.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Gera o executável com otimizações máximas, suporte a vetores AVX2 e paralelismo multinúcleo."
+        }
+    ]
+}
